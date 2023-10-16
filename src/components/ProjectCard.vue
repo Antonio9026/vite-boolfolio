@@ -24,6 +24,13 @@ export default{
           </div>
           <p>{{ project.title }}</p>
           <p>{{ project.description }}</p>
+          <a :href="project.github_link">Github link:</a>
+          <p>{{  }}</p>
+         
+          <div class="tecnologie" v-for=" technology in project.technologies">
+           <p>{{ technology.name }}</p>
+          </div>
+          <p>{{ project.type.type }}</p>
         </div>
 
 </template>
