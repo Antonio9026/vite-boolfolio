@@ -1,6 +1,6 @@
 <script >
 import axios from "axios";
-import ProjectCard from "./components/ProjectCard.vue"
+import ProjectCard from "../components/ProjectCard.vue"
 export default {
   components: {
     ProjectCard,
@@ -37,16 +37,16 @@ export default {
 </script>
 
 <template>
-  <header>
-    <ul>
-      <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-      <li><router-link :to="{ name: 'index' }">I miei progetti</router-link></li>
-      <!-- <li><router-link :to="{ name: 'show', params: }">Show</router-link></li> -->
-    </ul>
-  </header>
-  <main>
-    <router-view></router-view>
-  </main>
+  
+    <div class="container">
+
+      <div v-for="project in projects" :key="project.id" class="card-container">
+        <ProjectCard :project="project"/>
+      </div>
+    </div>
+     
+  
+ 
 </template>
 
 <style scoped></style>
