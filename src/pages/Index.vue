@@ -24,7 +24,7 @@ export default {
           delete response.data.results.data;
 
           this.pagination = response.data.results;
-          console.log(response);
+        //   console.log(response);
         })
     },
 
@@ -42,6 +42,7 @@ export default {
 
       <div v-for="project in projects" :key="project.id" class="card-container">
         <ProjectCard :project="project"/>
+        <li class="rotte"><router-link :to="{ name: 'index.show', params: { id: project.id }}">Vedi dettagli</router-link></li>
       </div>
     </div>
      
@@ -49,4 +50,5 @@ export default {
  
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

@@ -1,5 +1,5 @@
 <script >
-import axios from "axios";
+
 import ProjectCard from "./components/ProjectCard.vue"
 export default {
   components: {
@@ -7,46 +7,57 @@ export default {
   },
   data() {
     return {
-      projects: [],
-      pagination: {}
+
 
     }
   },
 
   methods: {
-    fetchData() {
-      axios.get("http://127.0.0.1:8000/api/projects")
-        .then((response) => {
-          // salvo i progetti 
-          this.projects = response.data.results.data;
-
-          // salvo i dati relativi alla paginazione con il delete cancello la chiave data 
-          delete response.data.results.data;
-
-          this.pagination = response.data.results;
-          console.log(response);
-        })
-    },
 
   },
 
   mounted() {
-    this.fetchData();
+
   }
 };
 </script>
 
 <template>
   <header>
-    <ul>
-      <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-      <li><router-link :to="{ name: 'index' }">I miei progetti</router-link></li>
-      <!-- <li><router-link :to="{ name: 'show', params: }">Show</router-link></li> -->
-    </ul>
+    <nav>
+      <ul class="nav-rotte">
+        <li class="rotte"><router-link class="rotte" :to="{ name: 'home' }">Home</router-link></li>
+        <li class="rotte"><router-link class="rotte" :to="{ name: 'index' }">I miei progetti</router-link></li>
+        
+      </ul>
+    </nav>
   </header>
   <main>
     <router-view></router-view>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+header {
+  height: 50px;
+
+}
+
+.nav-rotte {
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  text-decoration: none;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+
+}
+nav{
+  height: 100%;
+}
+.rotte {
+  text-decoration-line: none;
+}
+</style>
