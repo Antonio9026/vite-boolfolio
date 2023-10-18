@@ -44,6 +44,13 @@ export default {
         <ProjectCard :project="project"/>
         <li class="rotte"><router-link :to="{ name: 'index.show', params: { id: project.id }}">Vedi dettagli</router-link></li>
       </div>
+
+
+    </div>
+
+    <div>
+      <a class="btn btn-primary" v-for="pageLink in pagination.links" href="pageLink.url" v-html="pageLink.label"></a>
+      
     </div>
      
   
